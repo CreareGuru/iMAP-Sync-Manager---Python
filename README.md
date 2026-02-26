@@ -104,7 +104,117 @@ Python packages:
 - `IMAPClient`
 
 Example `requirements.txt`:
-
-```txt
 PyQt6
 IMAPClient
+
+## Running the App
+
+### Clone the repository
+
+git clone https://github.com/CreareGuru/iMAP-Sync-Manager---Python.git
+
+iMAP-Sync-Manager---Python
+
+### Create a virtual environment (recommended)
+
+python -m venv venv
+# Windows:
+venv\\Scripts\\activate
+# Linux/macOS:
+source venv/bin/activate
+
+### Install dependencies
+
+pip install -r requirements.txt
+
+### Run the app
+
+python imap_sync_app.py
+
+A modern dark-themed window called “IMAP Sync Manager” should open.
+
+---
+
+## Usage
+
+### 1. Configure Accounts
+
+Open the Accounts tab.
+Click “Add account”.
+Fill in:
+- Account name (label)
+- IMAP server (e.g. imap.example.com)
+- Port (typically 993 for SSL, 143 for plain)
+- Email address
+- Password
+- Check “Use SSL/TLS”
+Click Save.
+If the test fails, you can still save the account.
+
+### 2. Create Sync Setups
+
+Open Sync setups.
+Click “Add sync setup”.
+Enter:
+- Setup name
+- From account
+- To account
+- Active
+- Folders (all or custom list)
+Save.
+
+### 3. Run Syncs
+
+Select a setup.
+Click “Start selected”.
+Watch progress in Status / Logs.
+Stop sync if needed.
+
+### 4. Logs
+
+Logs appear in Status / Logs.
+A file imap_syncer.log is created.
+Logs can be saved to file.
+
+---
+
+## Data & Storage
+
+SQLite database:
+imap_syncer.db
+
+Tables:
+- accounts
+- sync_setups
+- synced_messages
+
+Passwords stored in plain text. Use only on secure systems.
+
+---
+
+## Safety Notes
+
+This app can delete emails on the target server.
+Test on non-critical mailboxes first.
+Always keep backups.
+
+---
+
+## Project Structure
+
+imap-sync-manager/
+
+├─ imap_sync_app.py
+
+├─ requirements.txt
+
+├─ README.md
+
+└─ imap_syncer.db
+
+---
+
+## License
+
+MIT License – see LICENSE.
+"""
